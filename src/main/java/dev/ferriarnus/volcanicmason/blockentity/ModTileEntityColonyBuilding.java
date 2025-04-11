@@ -1,4 +1,4 @@
-package dev.ferriarnus.vulcanicmason.blockentity;
+package dev.ferriarnus.volcanicmason.blockentity;
 
 import com.minecolonies.api.tileentities.AbstractTileEntityColonyBuilding;
 import com.minecolonies.core.tileentities.TileEntityColonyBuilding;

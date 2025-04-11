@@ -1,0 +1,12 @@
+{
+  "block.volcanicmason.volcanic_mason" : "Volcanicmason's Hut",
+  "block.volcanicmason.volcanic_mason.name" : "Volcanicmason's Hut",
+
+  "com.volcanicmason.building.volcanic_mason": "Volcanicmason's Hut",
+  "com.volcanicmason.building.volcanic_mason.desc": "Mines cobblestone, stone, obsidian and basalt",
+
+  "com.volcanicmason.job.volcanic_mason": "Volcanic Mason",
+  "volcanicmason:volcanicmason.job.desc": "Mines cobblestone and other lava created products.",
+
+  "volcanicmason:volcanicmason.skills.desc": "Affects stone harvesting speed."
+}

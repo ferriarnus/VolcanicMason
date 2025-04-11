@@ -1,4 +1,4 @@
-package dev.ferriarnus.vulcanicmason.buildings;
+package dev.ferriarnus.volcanicmason.buildings;
 
 import com.minecolonies.api.colony.IColony;
 import com.minecolonies.api.colony.buildings.modules.AbstractBuildingModule;
@@ -12,7 +12,7 @@ import com.minecolonies.core.colony.buildings.AbstractBuilding;
 import com.minecolonies.core.colony.buildings.modules.settings.BlockSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.IntSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.SettingKey;
-import dev.ferriarnus.vulcanicmason.VulcanicMasonMod;
+import dev.ferriarnus.volcanicmason.VolcanicMasonMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -26,16 +26,16 @@ import java.util.Set;
 
 import static com.minecolonies.api.util.constant.EquipmentLevelConstants.TOOL_LEVEL_WOOD_OR_GOLD;
 
-public class BuildingVulcanicMason extends AbstractBuilding {
+public class BuildingVolcanicMason extends AbstractBuilding {
 
-    public static final String VULCANIC_MASON = "vulcanic_mason";
+    public static final String VOLCANIC_MASON = "volcanic_mason";
     private static final String TAG_CLOCATION = "cobble";
     private static final String TAG_SLOCATION = "stone";
     private static final String TAG_OLOCATION = "obsidian";
     private static final String TAG_BLOCATION = "basalt";
 
-    public static final ISettingKey<IntSetting> MINE_AMOUNT = new SettingKey<>(IntSetting.class, ResourceLocation.fromNamespaceAndPath(VulcanicMasonMod.MODID, "mineamount"));
-    public static final ISettingKey<BlockSetting> MODE = new SettingKey<>(BlockSetting.class, ResourceLocation.fromNamespaceAndPath(VulcanicMasonMod.MODID, "mode"));
+    public static final ISettingKey<IntSetting> MINE_AMOUNT = new SettingKey<>(IntSetting.class, ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "mineamount"));
+    public static final ISettingKey<BlockSetting> MODE = new SettingKey<>(BlockSetting.class, ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "mode"));
 
     protected BlockPos cobbleLocation;
     protected BlockPos stoneLocation;
@@ -43,14 +43,14 @@ public class BuildingVulcanicMason extends AbstractBuilding {
     protected BlockPos basaltLocation;
 
 
-    protected BuildingVulcanicMason(@NotNull IColony colony, BlockPos pos) {
+    protected BuildingVolcanicMason(@NotNull IColony colony, BlockPos pos) {
         super(colony, pos);
         keepX.put(itemStack -> ItemStackUtils.hasEquipmentLevel(itemStack, ModEquipmentTypes.pickaxe.get(), TOOL_LEVEL_WOOD_OR_GOLD, getMaxEquipmentLevel()), new Tuple<>(1, true));
     }
 
     @Override
     public String getSchematicName() {
-        return VULCANIC_MASON;
+        return VOLCANIC_MASON;
     }
 
     public BlockPos getBlockToMine() {
@@ -62,6 +62,16 @@ public class BuildingVulcanicMason extends AbstractBuilding {
 
     public BlockPos getBlockToPlace() {
         return obsidianLocation;
+    }
+
+    @Override
+    public int getMaxEquipmentLevel() {
+        return 5;
+    }
+
+    @Override
+    public int getMaxBuildingLevel() {
+        return 5;
     }
 
     @Override
@@ -86,8 +96,10 @@ public class BuildingVulcanicMason extends AbstractBuilding {
         return compound;
     }
 
-    private void loadPos()
-    {
+    private void loadPos() {
+        if (tileEntity == null) {
+            return;
+        }
         final Map<String, Set<BlockPos>> map = tileEntity.getWorldTagNamePosMap();
         final Set<BlockPos> cobblePos = map.getOrDefault(TAG_CLOCATION, new HashSet<>());
         final Set<BlockPos> stonePos = map.getOrDefault(TAG_SLOCATION, new HashSet<>());
@@ -98,7 +110,6 @@ public class BuildingVulcanicMason extends AbstractBuilding {
         stoneLocation = stonePos.iterator().next();
         obsidianLocation = obsidianPos.iterator().next();
         basaltLocation = basaltPos.iterator().next();
-
     }
 
     public static class LimitedMiningModule extends AbstractBuildingModule implements IBuildingEventsModule, IPersistentModule {

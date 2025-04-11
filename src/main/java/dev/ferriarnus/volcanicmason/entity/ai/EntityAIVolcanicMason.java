@@ -1,45 +1,48 @@
-package dev.ferriarnus.vulcanicmason.entity.ai;
+package dev.ferriarnus.volcanicmason.entity.ai;
 
-import com.minecolonies.api.configuration.ServerConfiguration;
 import com.minecolonies.api.entity.ai.statemachine.AITarget;
 import com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
+import com.minecolonies.api.entity.citizen.VisibleCitizenStatus;
 import com.minecolonies.api.research.util.ResearchConstants;
 import com.minecolonies.api.util.InventoryUtils;
 import com.minecolonies.core.MineColonies;
 import com.minecolonies.core.entity.ai.workers.AbstractEntityAIInteract;
-import dev.ferriarnus.vulcanicmason.buildings.BuildingVulcanicMason;
-import dev.ferriarnus.vulcanicmason.jobs.JobVulcanicMason;
+import dev.ferriarnus.volcanicmason.buildings.BuildingVolcanicMason;
+import dev.ferriarnus.volcanicmason.jobs.JobVolcanicMason;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 import static com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState.*;
 import static com.minecolonies.api.util.constant.Constants.TICKS_SECOND;
 import static com.minecolonies.api.util.constant.Constants.UPDATE_FLAG;
-import static dev.ferriarnus.vulcanicmason.entity.ai.VulcanicMasonStates.*;
+import static dev.ferriarnus.volcanicmason.entity.ai.VolcanicMasonStates.*;
 
-public class EntityAIVulcanicMason extends AbstractEntityAIInteract<JobVulcanicMason, BuildingVulcanicMason> {
+public class EntityAIVolcanicMason extends AbstractEntityAIInteract<JobVolcanicMason, BuildingVolcanicMason> {
 
-    public EntityAIVulcanicMason(@NotNull JobVulcanicMason job) {
+    public EntityAIVolcanicMason(@NotNull JobVolcanicMason job) {
         super(job);
         super.registerTargets(
                 new AITarget<IAIState>(AIWorkerState.IDLE, () -> AIWorkerState.START_WORKING, 1),
                 new AITarget<IAIState>(AIWorkerState.START_WORKING, this::decide, 5),
-                new AITarget<IAIState>(VULCANIC_MASON_PLACE_FLUID, this::placeFluid, TICKS_SECOND),
-                new AITarget<IAIState>(VULCANIC_MASON_HARVESTING, this::harvest, TICKS_SECOND)
+                new AITarget<IAIState>(VOLCANIC_MASON_PLACE_FLUID, this::placeFluid, TICKS_SECOND),
+                new AITarget<IAIState>(VOLCANIC_MASON_HARVESTING, this::harvest, TICKS_SECOND)
         );
         this.worker.setCanPickUpLoot(true);
     }
 
     private IAIState decide() {
+        worker.getCitizenData().setVisibleStatus(VisibleCitizenStatus.WORKING);
+
         if (building.getBlockToMine() != null) {
-            if (building.getFirstModuleOccurance(BuildingVulcanicMason.LimitedMiningModule.class).canMine()) {
-                return VULCANIC_MASON_HARVESTING;
+            if (building.getFirstModuleOccurance(BuildingVolcanicMason.LimitedMiningModule.class).canMine()) {
+                return VOLCANIC_MASON_HARVESTING;
             }
         }
 
@@ -87,8 +90,13 @@ public class EntityAIVulcanicMason extends AbstractEntityAIInteract<JobVulcanicM
 
     private IAIState harvest() {
         final BlockPos posToMine = building.getBlockToMine();
+
         if (posToMine == null) {
             this.resetActionsDone();
+            return START_WORKING;
+        }
+
+        if (worker.level().getBlockState(posToMine).getBlock() instanceof LiquidBlock) {
             return START_WORKING;
         }
 
@@ -96,8 +104,9 @@ public class EntityAIVulcanicMason extends AbstractEntityAIInteract<JobVulcanicM
             return getState();
         }
 
+
         if (mineBlock(posToMine)) {
-            building.getFirstModuleOccurance(BuildingVulcanicMason.LimitedMiningModule.class).mine();
+            building.getFirstModuleOccurance(BuildingVolcanicMason.LimitedMiningModule.class).mine();
             incrementActionsDoneAndDecSaturation();
             worker.getCitizenExperienceHandler().addExperience(1.0 / 2.0);
         }
@@ -126,7 +135,7 @@ public class EntityAIVulcanicMason extends AbstractEntityAIInteract<JobVulcanicM
     }
 
     @Override
-    public Class<BuildingVulcanicMason> getExpectedBuildingClass() {
-        return BuildingVulcanicMason.class;
+    public Class<BuildingVolcanicMason> getExpectedBuildingClass() {
+        return BuildingVolcanicMason.class;
     }
 }

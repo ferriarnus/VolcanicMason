@@ -1,10 +1,10 @@
 {
   "icon": "",
-  "name": "Vulcanic Mason",
+  "name": "Volcanic Mason",
   "authors": [
     "Ferri_Arnus"
   ],
-  "desc": "adds the vulcanic mason",
+  "desc": "adds the volcanic mason",
   "mods": [
     "structurize",
     "minecolonies"
