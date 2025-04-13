@@ -1,0 +1,28 @@
+{
+  "branch": "minecolonies:technology",
+  "effects": [
+    {
+      "volcanicmason:basalt": 1
+    }
+  ],
+  "icon": "volcanicmason:volcanic_mason",
+  "parentResearch": "volcanicmason:technology/stone",
+  "requirements": [
+    {
+      "building": "volcanic_mason",
+      "level": 3
+    },
+    {
+      "building": "netherworker",
+      "level": 1
+    },
+    {
+      "items": {
+        "count": 1,
+        "item": "minecraft:blue_ice"
+      }
+    }
+  ],
+  "researchLevel": 3,
+  "subtitle": "com.volcanicmason.research.technology.basalt.subtitle"
+}

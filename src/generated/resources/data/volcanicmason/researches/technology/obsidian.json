@@ -1,0 +1,28 @@
+{
+  "branch": "minecolonies:technology",
+  "effects": [
+    {
+      "volcanicmason:obsidian": 1
+    }
+  ],
+  "icon": "volcanicmason:volcanic_mason",
+  "parentResearch": "volcanicmason:technology/stone",
+  "requirements": [
+    {
+      "building": "vulcanic_mason",
+      "level": 4
+    },
+    {
+      "building": "netherworker",
+      "level": 3
+    },
+    {
+      "items": {
+        "count": 32,
+        "item": "minecraft:obsidian"
+      }
+    }
+  ],
+  "researchLevel": 3,
+  "subtitle": "com.volcanicmason.research.technology.obsidian.subtitle"
+}

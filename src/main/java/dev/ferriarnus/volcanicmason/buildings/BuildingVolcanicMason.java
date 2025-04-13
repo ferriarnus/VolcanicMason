@@ -13,6 +13,7 @@ import com.minecolonies.core.colony.buildings.modules.settings.BlockSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.IntSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.SettingKey;
 import dev.ferriarnus.volcanicmason.VolcanicMasonMod;
+import dev.ferriarnus.volcanicmason.settings.ModeSetting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -35,7 +36,7 @@ public class BuildingVolcanicMason extends AbstractBuilding {
     private static final String TAG_BLOCATION = "basalt";
 
     public static final ISettingKey<IntSetting> MINE_AMOUNT = new SettingKey<>(IntSetting.class, ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "mineamount"));
-    public static final ISettingKey<BlockSetting> MODE = new SettingKey<>(BlockSetting.class, ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "mode"));
+    public static final ISettingKey<ModeSetting> MODE = new SettingKey<>(ModeSetting.class, ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "mode"));
 
     protected BlockPos cobbleLocation;
     protected BlockPos stoneLocation;
@@ -57,10 +58,15 @@ public class BuildingVolcanicMason extends AbstractBuilding {
         if (cobbleLocation == null) {
             loadPos();
         }
-        return stoneLocation;
+        return switch (this.getSetting(MODE).getValue()) {
+            case COBBLESTONE -> cobbleLocation;
+            case STONE -> stoneLocation;
+            case OBSIDIAN -> obsidianLocation;
+            case BASALT -> basaltLocation;
+        };
     }
 
-    public BlockPos getBlockToPlace() {
+    public BlockPos getObsidianPos() {
         return obsidianLocation;
     }
 

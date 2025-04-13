@@ -1,0 +1,28 @@
+{
+  "branch": "minecolonies:technology",
+  "effects": [
+    {
+      "volcanicmason:stone": 1
+    }
+  ],
+  "icon": "volcanicmason:volcanic_mason",
+  "parentResearch": "volcanicmason:technology/vulcanicmason",
+  "requirements": [
+    {
+      "building": "volcanic_mason",
+      "level": 2
+    },
+    {
+      "building": "stonesmeltery",
+      "level": 3
+    },
+    {
+      "items": {
+        "count": 128,
+        "item": "minecraft:stone"
+      }
+    }
+  ],
+  "researchLevel": 2,
+  "subtitle": "com.volcanicmason.research.technology.stone.subtitle"
+}

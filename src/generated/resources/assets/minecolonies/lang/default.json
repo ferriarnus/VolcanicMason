@@ -1,22 +1,8 @@
 {
-  "block.volcanicmason.volcanic_mason" : "Volcanicmason's Hut",
-  "block.volcanicmason.volcanic_mason.name" : "Volcanicmason's Hut",
-
-  "com.volcanicmason.building.volcanic_mason": "Volcanicmason's Hut",
-  "com.minecolonies.building.volcanic_mason": "Volcanicmason's Hut",
-  "com.volcanicmason.building.volcanic_mason.desc": "Mines cobblestone, stone, obsidian and basalt",
-
-  "com.volcanicmason.job.volcanic_mason": "Volcanicmason",
-  "volcanicmason:volcanicmason.job.desc": "Mines cobblestone and other lava created products.",
-
-  "volcanicmason:volcanicmason.skills.desc": "Affects stone harvesting speed.",
-
-  "com.volcanicmason.research.effects.volcanic_mason.description": "Unlocks Volcanicmason",
-
   "com.volcanicmason.research.basalt.description": "Volcanicmasons can now gather basalt blocks",
+  "com.volcanicmason.research.effects.volcanic_mason.description": "Unlocks Volcanicmason",
   "com.volcanicmason.research.obsidian.description": "Volcanicmasons can now gather obsidian blocks",
   "com.volcanicmason.research.stone.description": "Volcanicmasons can now gather stone blocks",
-
   "com.volcanicmason.research.technology.basalt.name": "NetherWorks",
   "com.volcanicmason.research.technology.basalt.subtitle": "This is a thing?",
   "com.volcanicmason.research.technology.obsidian.name": "Mining hard",

@@ -15,6 +15,7 @@ import com.minecolonies.core.colony.buildings.views.EmptyView;
 import dev.ferriarnus.volcanicmason.VolcanicMasonMod;
 import dev.ferriarnus.volcanicmason.block.BlockRegistry;
 import dev.ferriarnus.volcanicmason.jobs.JobsRegistry;
+import dev.ferriarnus.volcanicmason.settings.ModeSetting;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Blocks;
@@ -40,7 +41,7 @@ public class BuildingRegistry {
     public static final BuildingEntry.ModuleProducer<SettingsModule,SettingsModuleView> VOLCANIC_MASON_SETTINGS =
             new BuildingEntry.ModuleProducer<>("volcanic_mason_settings", () -> new SettingsModule()
                     .with(BuildingVolcanicMason.MINE_AMOUNT, new IntSetting(16))
-                    .with(BuildingVolcanicMason.MODE, new BlockSetting((BlockItem) Blocks.COBBLESTONE.asItem())),
+                    .with(BuildingVolcanicMason.MODE, new ModeSetting()),
                     () -> SettingsModuleView::new);
 
     public static final DeferredHolder<BuildingEntry,BuildingEntry> VOLCANIC_MASON = BUILDINGS.register("volcanic_mason", () -> new BuildingEntry.Builder()
