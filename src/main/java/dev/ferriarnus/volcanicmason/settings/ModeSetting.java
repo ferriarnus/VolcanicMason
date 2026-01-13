@@ -39,14 +39,14 @@ public class ModeSetting implements ISetting<Modes> {
             List<Modes> list = new ArrayList<>();
             list.add(Modes.COBBLESTONE);
             final IResearchEffectManager effects = iBuildingView.getColony().getResearchManager().getResearchEffects();
-            if (effects.getEffectStrength(VolcanicResearchProvider.STONE) > 0) {
+            if (effects.getEffectStrength(VolcanicResearchProvider.STONE) > 0 && iBuildingView.getBuildingLevel() > 1) {
                 list.add(Modes.STONE);
             }
-            if (effects.getEffectStrength(VolcanicResearchProvider.OBSIDIAN) > 0) {
-                list.add(Modes.OBSIDIAN);
-            }
-            if (effects.getEffectStrength(VolcanicResearchProvider.BASALT) > 0) {
+            if (effects.getEffectStrength(VolcanicResearchProvider.BASALT) > 0  && iBuildingView.getBuildingLevel() > 2) {
                 list.add(Modes.BASALT);
+            }
+            if (effects.getEffectStrength(VolcanicResearchProvider.OBSIDIAN) > 0  && iBuildingView.getBuildingLevel() > 3) {
+                list.add(Modes.OBSIDIAN);
             }
             int currentIntIndex = 0;
 

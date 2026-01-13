@@ -1,23 +1,23 @@
 {
-  "block.volcanicmason.volcanic_mason" : "Volcanicmason's Hut",
-  "block.volcanicmason.volcanic_mason.name" : "Volcanicmason's Hut",
+  "block.volcanicmason.volcanic_mason" : "Volcanic Mason's Hut",
+  "block.volcanicmason.volcanic_mason.name" : "Volcanic Mason's Hut",
 
-  "com.volcanicmason.building.volcanic_mason": "Volcanicmason's Hut",
-  "com.minecolonies.building.volcanic_mason": "Volcanicmason's Hut",
+  "com.volcanicmason.building.volcanic_mason": "Volcanic Mason's Hut",
+  "com.minecolonies.building.volcanic_mason": "Volcanic Mason's Hut",
   "com.volcanicmason.building.volcanic_mason.desc": "Mines cobblestone, stone, obsidian and basalt",
 
-  "com.volcanicmason.job.volcanic_mason": "Volcanicmason",
+  "com.volcanicmason.job.volcanic_mason": "Volcanic Mason",
   "volcanicmason:volcanicmason.job.desc": "Mines cobblestone and other lava created products.",
 
   "volcanicmason:volcanicmason.skills.desc": "Affects stone harvesting speed.",
 
   "com.volcanicmason.research.effects.volcanic_mason.description": "Unlocks Volcanicmason",
 
-  "com.volcanicmason.research.effects.basalt.description": "Volcanicmasons can now gather basalt blocks",
-  "com.volcanicmason.research.effects.obsidian.description": "Volcanicmasons can now gather obsidian blocks",
-  "com.volcanicmason.research.effects.stone.description": "Volcanicmasons can now gather stone blocks",
+  "com.volcanicmason.research.effects.basalt.description": "Volcanic Masons can now gather basalt blocks",
+  "com.volcanicmason.research.effects.obsidian.description": "Volcanic Masons can now gather obsidian blocks",
+  "com.volcanicmason.research.effects.stone.description": "Volcanic Masons can now gather stone blocks",
 
-  "com.volcanicmason.research.effects.soul_sand.description": "The Crusher's hut can now turn Basalt into Soulsand",
+  "com.volcanicmason.research.effects.soul_sand.description": "The Crusher's hut can now turn Basalt into Soul Sand",
 
   "com.volcanicmason.research.technology.basalt.name": "NetherWorks",
   "com.volcanicmason.research.technology.basalt.subtitle": "This is a thing?",
@@ -28,6 +28,9 @@
   "com.volcanicmason.research.technology.vulcanicmason.name": "Cobble for days",
   "com.volcanicmason.research.technology.vulcanicmason.subtitle": "Unlimited power!",
 
-  "com.volcanicmason.research.technology.soul_sand.name": "Crushing the Nether?",
-  "com.volcanicmason.research.technology.soul_sand.subtitle": "Soul crushing"
+  "com.volcanicmason.research.technology.soul_sand.name": "Crushing the Nether",
+  "com.volcanicmason.research.technology.soul_sand.subtitle": "Soul crushing",
+
+  "com.minecolonies.coremod.setting.volcanicmason:mode": "Volcanic Mason Mode:",
+  "com.minecolonies.coremod.setting.volcanicmason:mineamount": "Daily Limit:"
 }

@@ -54,15 +54,18 @@ public class BuildingVolcanicMason extends AbstractBuilding {
     }
 
     public BlockPos getBlockToMine() {
-        if (cobbleLocation == null) {
-            loadPos();
-        }
-        return switch (this.getSetting(MODE).getValue()) {
+        var pos = switch (this.getSetting(MODE).getValue()) {
             case COBBLESTONE -> cobbleLocation;
             case STONE -> stoneLocation;
             case OBSIDIAN -> obsidianLocation;
             case BASALT -> basaltLocation;
         };
+
+        if (pos == null) {
+            loadPos();
+        }
+
+        return pos;
     }
 
     public BlockPos getObsidianPos() {
@@ -111,10 +114,21 @@ public class BuildingVolcanicMason extends AbstractBuilding {
         final Set<BlockPos> obsidianPos = map.getOrDefault(TAG_OLOCATION, new HashSet<>());
         final Set<BlockPos> basaltPos = map.getOrDefault(TAG_BLOCATION, new HashSet<>());
 
-        cobbleLocation = cobblePos.iterator().next();
-        stoneLocation = stonePos.iterator().next();
-        obsidianLocation = obsidianPos.iterator().next();
-        basaltLocation = basaltPos.iterator().next();
+        if (!cobblePos.isEmpty()) {
+            cobbleLocation = cobblePos.iterator().next();
+        }
+        if (!stonePos.isEmpty()) {
+            stoneLocation = stonePos.iterator().next();
+        }
+        if (!cobblePos.isEmpty()) {
+            cobbleLocation = cobblePos.iterator().next();
+        }
+        if (!basaltPos.isEmpty()) {
+            basaltLocation = basaltPos.iterator().next();
+        }
+        if (!obsidianPos.isEmpty()) {
+            obsidianLocation = obsidianPos.iterator().next();
+        }
     }
 
     public static class LimitedMiningModule extends AbstractBuildingModule implements IBuildingEventsModule, IPersistentModule {

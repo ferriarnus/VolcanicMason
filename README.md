@@ -1,25 +1,21 @@
+# Volcanic Mason
+An addon for Minecolonies. The Volcanic Mason is a worker that mines cobblestone, stone, basalt and obsidian.  
+It can generate these blocks using water/lava block generators to infinity supply your colony!  
 
-Installation information
-=======
+## Getting started
+To get started, build a library and research the Volcanic Mason. The Library will tell you what is needed to unlock it.  
+To build the Volcanic Mason's Hut, open the build tool and select the Volcanic Mason style pack.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Crushing basalt
+Besides the Volcanic Mason worker, this addon adds one more recipe for the Crusher. It allows you to break down basalt 
+into soul sand.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Styles
+At the current time, only 2 styles (Minecolonies and Fortress) support the Volcanic Mason, but no fear, you can combine styles with no problems! 
+This is because I do not have the time (or skill) to implement each style. I am thus very open to people subtitling and 
+sharing their builds.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+Due to a technical limitation, the Volcanic Mason needs to be it's onw style, and can not be added to existing styles directly.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## Feedback
+In case you have some issues,feedback/ideas or builds you would like to share, feel free to reach out here in the github issues!
