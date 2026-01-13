@@ -1,0 +1,31 @@
+{
+  "branch": "minecolonies:technology",
+  "costs": [
+    {
+      "count": 64,
+      "item": "minecraft:soul_sand"
+    }
+  ],
+  "effects": [
+    {
+      "id": "volcanicmason:effects/soul_sand",
+      "level": 1
+    }
+  ],
+  "icon": "minecraft:soul_sand",
+  "parentResearch": "minecolonies:technology/rockingroll",
+  "requirements": [
+    {
+      "type": "minecolonies:building",
+      "building": "minecolonies:netherworker",
+      "level": 1
+    },
+    {
+      "type": "minecolonies:building",
+      "building": "minecolonies:crusher",
+      "level": 3
+    }
+  ],
+  "researchLevel": 3,
+  "subtitle": "com.volcanicmason.research.technology.soul_sand.subtitle"
+}

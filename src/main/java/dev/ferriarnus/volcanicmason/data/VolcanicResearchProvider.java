@@ -2,7 +2,6 @@ package dev.ferriarnus.volcanicmason.data;
 
 import com.minecolonies.api.research.AbstractResearchProvider;
 import com.minecolonies.api.util.constant.Constants;
-import com.minecolonies.core.generation.defaults.DefaultResearchProvider;
 import dev.ferriarnus.volcanicmason.VolcanicMasonMod;
 import dev.ferriarnus.volcanicmason.block.BlockRegistry;
 import dev.ferriarnus.volcanicmason.buildings.BuildingRegistry;
@@ -20,9 +19,11 @@ import java.util.concurrent.CompletableFuture;
 public class VolcanicResearchProvider extends AbstractResearchProvider {
     private static final ResourceLocation TECH   = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "technology");
 
-    public static final ResourceLocation STONE = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "stone");
-    public static final ResourceLocation BASALT = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "basalt");
-    public static final ResourceLocation OBSIDIAN = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "obsidian");
+    public static final ResourceLocation STONE = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "effects/stone");
+    public static final ResourceLocation BASALT = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "effects/basalt");
+    public static final ResourceLocation OBSIDIAN = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "effects/obsidian");
+
+    public static final ResourceLocation SOUL_SAND = ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "effects/soul_sand");
 
     public VolcanicResearchProvider(@NotNull PackOutput packOutput, @NotNull CompletableFuture<HolderLookup.Provider> provider) {
         super(packOutput, provider);
@@ -42,6 +43,8 @@ public class VolcanicResearchProvider extends AbstractResearchProvider {
 
         effects.add(new ResearchEffect(BuildingRegistry.VOLCANIC_MASON.get().getBuildingBlock()).setTranslatedName("Unlocks Volcanicmason").setLevels(new double[] {5}));
 
+        effects.add(new ResearchEffect(SOUL_SAND).setTranslatedName("The Crusher's hut can now turn Basalt into Soulsand"));
+
         return effects;
     }
 
@@ -53,7 +56,7 @@ public class VolcanicResearchProvider extends AbstractResearchProvider {
                 .setTranslatedName("Cobble for days")
                 .setTranslatedSubtitle("Unlimited power!")
                 .setIcon(BlockRegistry.VOLCANIC_MASON.asItem())
-                .addBuildingRequirement("simplequarry", 1)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "simplequarry"), 1)
                 .addItemCost(Items.LAVA_BUCKET, 1, provider)
                 .addItemCost(Items.WATER_BUCKET, 1, provider)
                 .addEffect(BuildingRegistry.VOLCANIC_MASON.get().getBuildingBlock(), 1)
@@ -63,8 +66,8 @@ public class VolcanicResearchProvider extends AbstractResearchProvider {
                 .setTranslatedName("StoneWorks")
                 .setTranslatedSubtitle("For when the smelter is busy")
                 .setIcon(Items.STONE)
-                .addBuildingRequirement("volcanic_mason", 2)
-                .addBuildingRequirement("stonesmeltery", 3)
+                .addSingleBuildingRequirement(ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID,"volcanic_mason"), 2)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "stonesmeltery"), 3)
                 .setParentResearch(vulcanicmason)
                 .addItemCost(Items.STONE, 128, provider)
                 .addEffect(STONE, 1)
@@ -74,8 +77,8 @@ public class VolcanicResearchProvider extends AbstractResearchProvider {
                 .setTranslatedName("NetherWorks")
                 .setTranslatedSubtitle("This is a thing?")
                 .setIcon(Items.BASALT)
-                .addBuildingRequirement("volcanic_mason", 3)
-                .addBuildingRequirement("netherworker", 1)
+                .addSingleBuildingRequirement(ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID,"volcanic_mason"), 3)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "netherworker"), 1)
                 .setParentResearch(stone)
                 .addItemCost(Items.BLUE_ICE, 1, provider)
                 .addEffect(BASALT, 1)
@@ -85,11 +88,25 @@ public class VolcanicResearchProvider extends AbstractResearchProvider {
                 .setTranslatedName("Mining hard")
                 .setTranslatedSubtitle("Well that took some time")
                 .setIcon(Items.OBSIDIAN)
-                .addBuildingRequirement("vulcanic_mason", 4)
-                .addBuildingRequirement("netherworker", 3)
+                .addSingleBuildingRequirement(ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID,"volcanic_mason"), 4)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "netherworker"), 3)
                 .setParentResearch(basalt)
                 .addItemCost(Items.OBSIDIAN, 32, provider)
                 .addEffect(OBSIDIAN, 1)
+                .addToList(researches);
+
+        Research rockingroll = new Research(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "technology/rockingroll"), TECH);
+        rockingroll.researchLevel = 2;
+
+        Research soulsand = new Research(ResourceLocation.fromNamespaceAndPath(VolcanicMasonMod.MODID, "technology/soul_sand"), TECH)
+                .setTranslatedName("Crushing the Nether")
+                .setTranslatedSubtitle("Soul crushing")
+                .setIcon(Items.SOUL_SAND)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "netherworker"), 1)
+                .addBuildingRequirement(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "crusher"), 3)
+                .setParentResearch(rockingroll)
+                .addItemCost(Items.SOUL_SAND, 64, provider)
+                .addEffect(SOUL_SAND, 1)
                 .addToList(researches);
 
         return researches;

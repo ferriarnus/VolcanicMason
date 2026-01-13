@@ -1,0 +1,16 @@
+{
+  "type": "recipe",
+  "crafter": "crusher_custom",
+  "inputs": [
+    {
+      "count": 2,
+      "id": "minecraft:basalt"
+    }
+  ],
+  "intermediate": "minecraft:air",
+  "not-research-id": "minecolonies:effects/crushing11unlock",
+  "research-id": "volcanicmason:effects/soul_sand",
+  "result": {
+    "id": "minecraft:soul_sand"
+  }
+}

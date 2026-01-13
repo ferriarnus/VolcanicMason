@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "volcanicmason:block/volcanic_mason",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "volcanicmason:block/volcanic_mason",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "volcanicmason:block/volcanic_mason",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "volcanicmason:block/volcanic_mason",
+      "y": 270
+    }
+  }
+}

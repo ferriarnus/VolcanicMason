@@ -12,7 +12,7 @@ import com.minecolonies.api.colony.buildings.views.IBuildingView;
 import com.minecolonies.api.colony.requestsystem.factory.FactoryVoidInput;
 import com.minecolonies.api.colony.requestsystem.factory.IFactory;
 import com.minecolonies.api.colony.requestsystem.factory.IFactoryController;
-import com.minecolonies.api.research.effects.IResearchEffectManager;
+import com.minecolonies.api.research.IResearchEffectManager;
 import com.minecolonies.api.util.constant.TypeConstants;
 import dev.ferriarnus.volcanicmason.data.VolcanicResearchProvider;
 import net.minecraft.core.HolderLookup;

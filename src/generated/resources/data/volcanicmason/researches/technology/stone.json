@@ -1,26 +1,29 @@
 {
   "branch": "minecolonies:technology",
-  "effects": [
+  "costs": [
     {
-      "volcanicmason:stone": 1
+      "count": 128,
+      "item": "minecraft:stone"
     }
   ],
-  "icon": "volcanicmason:volcanic_mason",
+  "effects": [
+    {
+      "id": "volcanicmason:effects/stone",
+      "level": 1
+    }
+  ],
+  "icon": "minecraft:stone",
   "parentResearch": "volcanicmason:technology/vulcanicmason",
   "requirements": [
     {
-      "building": "volcanic_mason",
+      "type": "minecolonies:single-building",
+      "building": "volcanicmason:volcanic_mason",
       "level": 2
     },
     {
-      "building": "stonesmeltery",
+      "type": "minecolonies:building",
+      "building": "minecolonies:stonesmeltery",
       "level": 3
-    },
-    {
-      "items": {
-        "count": 128,
-        "item": "minecraft:stone"
-      }
     }
   ],
   "researchLevel": 2,

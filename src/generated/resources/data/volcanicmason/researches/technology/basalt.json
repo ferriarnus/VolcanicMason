@@ -1,26 +1,29 @@
 {
   "branch": "minecolonies:technology",
-  "effects": [
+  "costs": [
     {
-      "volcanicmason:basalt": 1
+      "count": 1,
+      "item": "minecraft:blue_ice"
     }
   ],
-  "icon": "volcanicmason:volcanic_mason",
+  "effects": [
+    {
+      "id": "volcanicmason:effects/basalt",
+      "level": 1
+    }
+  ],
+  "icon": "minecraft:basalt",
   "parentResearch": "volcanicmason:technology/stone",
   "requirements": [
     {
-      "building": "volcanic_mason",
+      "type": "minecolonies:single-building",
+      "building": "volcanicmason:volcanic_mason",
       "level": 3
     },
     {
-      "building": "netherworker",
+      "type": "minecolonies:building",
+      "building": "minecolonies:netherworker",
       "level": 1
-    },
-    {
-      "items": {
-        "count": 1,
-        "item": "minecraft:blue_ice"
-      }
     }
   ],
   "researchLevel": 3,

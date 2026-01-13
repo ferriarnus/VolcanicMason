@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_pickaxe"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "T": {
+      "item": "structurize:sceptergold"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "XTX",
+    "WBL",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "volcanicmason:volcanic_mason"
+  },
+  "show_notification": true
+}

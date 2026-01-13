@@ -9,7 +9,6 @@ import com.minecolonies.api.equipment.ModEquipmentTypes;
 import com.minecolonies.api.util.BlockPosUtil;
 import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.core.colony.buildings.AbstractBuilding;
-import com.minecolonies.core.colony.buildings.modules.settings.BlockSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.IntSetting;
 import com.minecolonies.core.colony.buildings.modules.settings.SettingKey;
 import dev.ferriarnus.volcanicmason.VolcanicMasonMod;
@@ -147,10 +146,4 @@ public class BuildingVolcanicMason extends AbstractBuilding {
         }
     }
 
-    public enum Mode {
-        COBBLESTONE,
-        STONE,
-        OBSIDIAN,
-        BASALT
-    }
 }

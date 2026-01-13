@@ -13,9 +13,11 @@
 
   "com.volcanicmason.research.effects.volcanic_mason.description": "Unlocks Volcanicmason",
 
-  "com.volcanicmason.research.basalt.description": "Volcanicmasons can now gather basalt blocks",
-  "com.volcanicmason.research.obsidian.description": "Volcanicmasons can now gather obsidian blocks",
-  "com.volcanicmason.research.stone.description": "Volcanicmasons can now gather stone blocks",
+  "com.volcanicmason.research.effects.basalt.description": "Volcanicmasons can now gather basalt blocks",
+  "com.volcanicmason.research.effects.obsidian.description": "Volcanicmasons can now gather obsidian blocks",
+  "com.volcanicmason.research.effects.stone.description": "Volcanicmasons can now gather stone blocks",
+
+  "com.volcanicmason.research.effects.soul_sand.description": "The Crusher's hut can now turn Basalt into Soulsand",
 
   "com.volcanicmason.research.technology.basalt.name": "NetherWorks",
   "com.volcanicmason.research.technology.basalt.subtitle": "This is a thing?",
@@ -24,5 +26,8 @@
   "com.volcanicmason.research.technology.stone.name": "StoneWorks",
   "com.volcanicmason.research.technology.stone.subtitle": "For when the smelter is busy",
   "com.volcanicmason.research.technology.vulcanicmason.name": "Cobble for days",
-  "com.volcanicmason.research.technology.vulcanicmason.subtitle": "Unlimited power!"
+  "com.volcanicmason.research.technology.vulcanicmason.subtitle": "Unlimited power!",
+
+  "com.volcanicmason.research.technology.soul_sand.name": "Crushing the Nether?",
+  "com.volcanicmason.research.technology.soul_sand.subtitle": "Soul crushing"
 }

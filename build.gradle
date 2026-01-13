@@ -120,16 +120,20 @@ configurations {
 }
 
 dependencies {
-    implementation "curse.maven:minecolonies-245506:6379135"
+    implementation "curse.maven:minecolonies-245506:7426008"
     //compileOnly "curse.maven:minecolonies-245506:6379137"
-    implementation "curse.maven:blockui-522992:6367809"
-    implementation "curse.maven:domum-ornamentum-527361:6335398"
-    implementation "curse.maven:structurize-298744:6367224"
-    implementation "curse.maven:multi-piston-303278:5783614"
+    implementation "curse.maven:blockui-522992:7387809"
+    implementation "curse.maven:domum-ornamentum-527361:7422835"
+    implementation "curse.maven:structurize-298744:7427254"
+    implementation "curse.maven:multi-piston-303278:7097877"
+    implementation "curse.maven:towntalk-900364:5653504"
 
     implementation("com.ldtteam:datagenerators:1.20.4-0.1.57-ALPHA:universal"){
         transitive = false
     }
+
+    implementation "curse.maven:jei-238222:7420587"
+    implementation "curse.maven:jade-324717:7428884"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

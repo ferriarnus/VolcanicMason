@@ -1,28 +1,31 @@
 {
   "branch": "minecolonies:technology",
-  "effects": [
+  "costs": [
     {
-      "volcanicmason:obsidian": 1
+      "count": 32,
+      "item": "minecraft:obsidian"
     }
   ],
-  "icon": "volcanicmason:volcanic_mason",
-  "parentResearch": "volcanicmason:technology/stone",
+  "effects": [
+    {
+      "id": "volcanicmason:effects/obsidian",
+      "level": 1
+    }
+  ],
+  "icon": "minecraft:obsidian",
+  "parentResearch": "volcanicmason:technology/basalt",
   "requirements": [
     {
-      "building": "vulcanic_mason",
+      "type": "minecolonies:single-building",
+      "building": "volcanicmason:volcanic_mason",
       "level": 4
     },
     {
-      "building": "netherworker",
+      "type": "minecolonies:building",
+      "building": "minecolonies:netherworker",
       "level": 3
-    },
-    {
-      "items": {
-        "count": 32,
-        "item": "minecraft:obsidian"
-      }
     }
   ],
-  "researchLevel": 3,
+  "researchLevel": 4,
   "subtitle": "com.volcanicmason.research.technology.obsidian.subtitle"
 }

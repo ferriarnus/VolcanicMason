@@ -53,7 +53,7 @@ public class EntityAIVolcanicMason extends AbstractEntityAIInteract<JobVolcanicM
         lastPos = building.getBlockToMine();
 
         if (lastPos != null) {
-            if (building.getFirstModuleOccurance(BuildingVolcanicMason.LimitedMiningModule.class).canMine()) {
+            if (building.getModule(BuildingVolcanicMason.LimitedMiningModule.class).canMine()) {
                 return VOLCANIC_MASON_HARVESTING;
             }
         }
@@ -120,7 +120,7 @@ public class EntityAIVolcanicMason extends AbstractEntityAIInteract<JobVolcanicM
 
 
         if (mineBlock(lastPos)) {
-            building.getFirstModuleOccurance(BuildingVolcanicMason.LimitedMiningModule.class).mine();
+            building.getModule(BuildingVolcanicMason.LimitedMiningModule.class).mine();
             incrementActionsDoneAndDecSaturation();
             worker.getCitizenExperienceHandler().addExperience(1.0 / 2.0);
             return START_WORKING;

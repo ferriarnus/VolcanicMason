@@ -1,27 +1,27 @@
 {
   "branch": "minecolonies:technology",
+  "costs": [
+    {
+      "count": 1,
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:water_bucket"
+    }
+  ],
   "effects": [
     {
-      "volcanicmason:effects/volcanic_mason": 1
+      "id": "volcanicmason:effects/volcanic_mason",
+      "level": 1
     }
   ],
   "icon": "volcanicmason:volcanic_mason",
   "requirements": [
     {
-      "building": "simplequarry",
+      "type": "minecolonies:building",
+      "building": "minecolonies:simplequarry",
       "level": 1
-    },
-    {
-      "items": {
-        "count": 1,
-        "item": "minecraft:lava_bucket"
-      }
-    },
-    {
-      "items": {
-        "count": 1,
-        "item": "minecraft:water_bucket"
-      }
     }
   ],
   "researchLevel": 1,
