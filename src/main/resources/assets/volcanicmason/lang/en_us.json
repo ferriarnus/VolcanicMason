@@ -2,6 +2,8 @@
   "block.volcanicmason.volcanic_mason" : "Volcanic Mason's Hut",
   "block.volcanicmason.volcanic_mason.name" : "Volcanic Mason's Hut",
 
+  "itemGroup.volcanic_mason": "Volcanic Mason",
+
   "com.volcanicmason.building.volcanic_mason": "Volcanic Mason's Hut",
   "com.minecolonies.building.volcanic_mason": "Volcanic Mason's Hut",
   "com.volcanicmason.building.volcanic_mason.desc": "Mines cobblestone, stone, obsidian and basalt",

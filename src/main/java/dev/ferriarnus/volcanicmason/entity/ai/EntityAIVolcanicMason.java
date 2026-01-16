@@ -1,14 +1,22 @@
 package dev.ferriarnus.volcanicmason.entity.ai;
 
+import com.google.common.reflect.TypeToken;
+import com.minecolonies.api.colony.requestsystem.requestable.StackList;
 import com.minecolonies.api.entity.ai.statemachine.AITarget;
 import com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
 import com.minecolonies.api.entity.citizen.VisibleCitizenStatus;
+import com.minecolonies.api.items.ModItems;
 import com.minecolonies.api.research.util.ResearchConstants;
 import com.minecolonies.api.util.InventoryUtils;
 import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.Tuple;
+import com.minecolonies.api.util.constant.StatisticsConstants;
+import com.minecolonies.api.util.constant.translation.RequestSystemTranslationConstants;
 import com.minecolonies.core.MineColonies;
+import com.minecolonies.core.colony.buildings.modules.BuildingModules;
+import com.minecolonies.core.colony.buildings.modules.BuildingStatisticsModule;
+import com.minecolonies.core.colony.buildings.workerbuildings.BuildingMiner;
 import com.minecolonies.core.entity.ai.workers.AbstractEntityAIInteract;
 import dev.ferriarnus.volcanicmason.buildings.BuildingVolcanicMason;
 import dev.ferriarnus.volcanicmason.jobs.JobVolcanicMason;
@@ -25,6 +33,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.function.Predicate;
 
 import static com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState.*;
@@ -76,6 +87,10 @@ public class EntityAIVolcanicMason extends AbstractEntityAIInteract<JobVolcanicM
             if (InventoryUtils.getCountFromBuilding(building, LAVA_BUCKET) > 0) {
                 this.needsCurrently = new Tuple<>(LAVA_BUCKET, 1);
                 return GATHERING_REQUIRED_MATERIALS;
+            } else if (!building.hasWorkerOpenRequestsOfType(worker.getCitizenData().getId(), TypeToken.of(StackList.class))){
+                final List<ItemStack> items = new ArrayList<>();
+                items.add(new ItemStack(Items.LAVA_BUCKET, 1));
+                worker.getCitizenData().createRequestAsync(new StackList(items, RequestSystemTranslationConstants.REQUESTS_TYPE_DELIVERY, 4, 1));
             }
             return START_WORKING;
         }
@@ -127,6 +142,14 @@ public class EntityAIVolcanicMason extends AbstractEntityAIInteract<JobVolcanicM
         }
 
         return getState();
+    }
+
+    @Override
+    public void onBlockDropReception(final List<ItemStack> blockDrops) {
+        super.onBlockDropReception(blockDrops);
+        for (final ItemStack stack : blockDrops) {
+            building.getModule(BuildingModules.STATS_MODULE).incrementBy(StatisticsConstants.ITEM_OBTAINED + ";" + stack.getItem().getDescriptionId(), stack.getCount());
+        }
     }
 
     @Override
