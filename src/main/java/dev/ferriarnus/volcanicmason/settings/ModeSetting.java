@@ -5,6 +5,7 @@ import com.ldtteam.blockui.Pane;
 import com.ldtteam.blockui.controls.ButtonImage;
 import com.ldtteam.blockui.controls.ItemIcon;
 import com.ldtteam.blockui.views.BOWindow;
+import com.minecolonies.api.colony.buildings.modules.ICommonSettingsModule;
 import com.minecolonies.api.colony.buildings.modules.settings.ISetting;
 import com.minecolonies.api.colony.buildings.modules.settings.ISettingKey;
 import com.minecolonies.api.colony.buildings.modules.settings.ISettingsModuleView;
@@ -34,7 +35,7 @@ public class ModeSetting implements ISetting<Modes> {
     }
 
     @Override
-    public void setupHandler(ISettingKey<?> iSettingKey, Pane pane, ISettingsModuleView iSettingsModuleView, IBuildingView iBuildingView, BOWindow boWindow) {
+    public void setupHandler(ISettingKey<?> iSettingKey, Pane pane, ICommonSettingsModule iSettingsModuleView, IBuildingView iBuildingView, BOWindow boWindow) {
         pane.findPaneOfTypeByID("trigger", ButtonImage.class).setHandler((input) -> {
             List<Modes> list = new ArrayList<>();
             list.add(Modes.COBBLESTONE);
@@ -69,9 +70,9 @@ public class ModeSetting implements ISetting<Modes> {
     }
 
     @Override
-    public void render(ISettingKey<?> iSettingKey, Pane pane, ISettingsModuleView iSettingsModuleView, IBuildingView iBuildingView, BOWindow boWindow) {
+    public void render(ISettingKey<?> iSettingKey, Pane pane, ICommonSettingsModule iSettingsModuleView, IBuildingView iBuildingView, BOWindow boWindow) {
         ButtonImage triggerButton = pane.findPaneOfTypeByID("trigger", ButtonImage.class);
-        triggerButton.setEnabled(this.isActive(iSettingsModuleView));
+        triggerButton.setEnabled(this.isActive((ISettingsModuleView) iSettingsModuleView));
         triggerButton.setText(Component.translatable(this.mode.getItem().getDescriptionId()));
         this.setHoverPane(iSettingKey, triggerButton, iSettingsModuleView);
         pane.findPaneOfTypeByID("iconfrom", ItemIcon.class).setItem(this.mode.getFluidStack());

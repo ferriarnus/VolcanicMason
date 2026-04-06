@@ -120,11 +120,12 @@ configurations {
 }
 
 dependencies {
-    implementation "curse.maven:minecolonies-245506:7426008"
-    //compileOnly "curse.maven:minecolonies-245506:6379137"
+    implementation "com.ldtteam:minecolonies:1.1.1281-1.21.1"
+    implementation "com.ldtteam:structurize:1.0.816-1.21.1"
+
     implementation "curse.maven:blockui-522992:7387809"
     implementation "curse.maven:domum-ornamentum-527361:7422835"
-    implementation "curse.maven:structurize-298744:7427254"
+    //implementation "curse.maven:structurize-298744:7427254"
     implementation "curse.maven:multi-piston-303278:7097877"
     implementation "curse.maven:towntalk-900364:5653504"
 
