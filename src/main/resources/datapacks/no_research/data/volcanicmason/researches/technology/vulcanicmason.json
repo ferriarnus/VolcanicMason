@@ -1,0 +1,16 @@
+{
+  "branch": "minecolonies:technology",
+  "costs": [
+    {
+      "count": 1,
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "icon": "volcanicmason:volcanic_mason",
+  "researchLevel": 1,
+  "subtitle": "com.volcanicmason.research.technology.vulcanicmason.subtitle"
+}
